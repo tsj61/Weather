@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Погодный трекер</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+<h1>Погода в любимых городах</h1>
+
+<form action="/add" method="post">
+    <input type="text" name="name" placeholder="Город" required>
+    <button type="submit">Добавить</button>
+</form>
+
+<div th:each="entry : ${weatherData}">
+    <h2 th:text="${entry.key}"></h2>
+    <p th:text="'Температура: ' + ${entry.value.main.temp} + '°C'"></p>
+    <p th:text="'Ощущается как: ' + ${entry.value.main.feels_like} + '°C'"></p>
+    <p th:text="${entry.value.weather[0].description}"></p>
+</div>
+</body>
+</html>
