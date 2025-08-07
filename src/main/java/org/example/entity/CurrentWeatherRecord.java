@@ -7,6 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -14,13 +15,23 @@ import java.util.Objects;
 public class CurrentWeatherRecord {
 
     @Id
-    private Long id;
+    private String id;
 
     private WeatherValue weather;
 
     private City city;
 
     private LocalDateTime timestamp;
+
+    public CurrentWeatherRecord() {
+    }
+
+    public CurrentWeatherRecord(WeatherValue weather, City city, LocalDateTime timestamp) {
+        this.id = UUID.randomUUID().toString();
+        this.weather = weather;
+        this.city = city;
+        this.timestamp = timestamp;
+    }
 
     @Override
     public boolean equals(Object o) {

@@ -1,15 +1,15 @@
 plugins {
     id("java")
-    id("org.springframework.boot") version "4.0.0-M1"
     id("io.spring.dependency-management") version "1.1.6"
+    id("org.springframework.boot") version "3.2.5"
 }
 
 group = "org.example"
 version = "1.0-SNAPSHOT"
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_24
-    targetCompatibility = JavaVersion.VERSION_24
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
 }
 
 repositories {
