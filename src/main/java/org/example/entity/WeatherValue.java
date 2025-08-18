@@ -1,17 +1,11 @@
 package org.example.entity;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 import java.util.Objects;
 
-@Getter
-@Setter
-//@Document(collection = "weather_value")
+@Data
 public class WeatherValue {
-
-    private Long id;
-
     private String main;
 
     private String mainDescription;
@@ -38,8 +32,7 @@ public class WeatherValue {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         WeatherValue that = (WeatherValue) o;
-        return Objects.equals(id, that.id) &&
-                Objects.equals(main, that.main) &&
+        return Objects.equals(main, that.main) &&
                 Objects.equals(mainDescription, that.mainDescription) &&
                 Objects.equals(temp, that.temp) &&
                 Objects.equals(feelsLike, that.feelsLike) &&
@@ -54,6 +47,6 @@ public class WeatherValue {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, main, mainDescription, temp, feelsLike, tempMin, tempMax, pressure, seaLevel, grndLevel, humidity, tempKf);
+        return Objects.hash(main, mainDescription, temp, feelsLike, tempMin, tempMax, pressure, seaLevel, grndLevel, humidity, tempKf);
     }
 }

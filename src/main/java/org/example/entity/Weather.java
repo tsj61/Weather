@@ -11,22 +11,22 @@ import java.util.UUID;
 
 @Getter
 @Setter
-@Document(collection = "weather_record")
-public class CurrentWeatherRecord {
+@Document(collection = "weather")
+public class Weather {
 
     @Id
     private String id;
 
     private WeatherValue weather;
 
-    private City city;
+    private String city;
 
     private LocalDateTime timestamp;
 
-    public CurrentWeatherRecord() {
+    public Weather() {
     }
 
-    public CurrentWeatherRecord(WeatherValue weather, City city, LocalDateTime timestamp) {
+    public Weather(WeatherValue weather, String city, LocalDateTime timestamp) {
         this.id = UUID.randomUUID().toString();
         this.weather = weather;
         this.city = city;
@@ -36,7 +36,7 @@ public class CurrentWeatherRecord {
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
-        CurrentWeatherRecord that = (CurrentWeatherRecord) o;
+        Weather that = (Weather) o;
         return Objects.equals(id, that.id) &&
                 Objects.equals(weather, that.weather) &&
                 Objects.equals(city, that.city) &&

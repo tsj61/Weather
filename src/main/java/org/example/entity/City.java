@@ -2,14 +2,17 @@ package org.example.entity;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Objects;
 
 @Getter
 @Setter
-//@Document(collection = "city")
+@Document(collection = "city")
 public class City {
+    @Id
     private Long id;
 
     private Float longitude;
@@ -17,7 +20,7 @@ public class City {
     private Float latitude;
 
     @Indexed
-    private String cityName;
+    private String name;
 
     @Override
     public boolean equals(Object o) {
@@ -26,11 +29,11 @@ public class City {
         return Objects.equals(id, city.id) &&
                 Objects.equals(longitude, city.longitude) &&
                 Objects.equals(latitude, city.latitude) &&
-                Objects.equals(cityName, city.cityName);
+                Objects.equals(name, city.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, longitude, latitude, cityName);
+        return Objects.hash(id, longitude, latitude, name);
     }
 }
