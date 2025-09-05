@@ -1,8 +1,7 @@
 package org.example.controller;
 
 import lombok.AllArgsConstructor;
-import org.example.dto.CurrentWeatherDTO;
-import org.example.entity.Weather;
+import org.example.entity.CurrentWeather;
 import org.example.service.CurrentWeatherService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,13 +15,13 @@ public class WeatherController {
     private CurrentWeatherService currentWeatherService;
 
     @PostMapping
-    public ResponseEntity<Void> saveCurrentWeather(@RequestBody Weather currentWeatherRecord) {
-        currentWeatherService.addCurrentWeather(currentWeatherRecord);
+    public ResponseEntity<Void> saveCurrentWeather(@RequestBody CurrentWeather currentCurrentWeatherRecord) {
+        currentWeatherService.addCurrentWeather(currentCurrentWeatherRecord);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @GetMapping
-    public ResponseEntity<CurrentWeatherDTO> getWeatherByLatAndLon(
+    public ResponseEntity<CurrentWeather> getWeatherByLatAndLon(
             @RequestParam Float latitude,
             @RequestParam Float longitude
     ) {

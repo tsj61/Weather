@@ -1,10 +1,9 @@
 package org.example.service;
 
-import org.example.dto.CurrentWeatherDTO;
-import org.example.entity.Weather;
+import org.example.entity.CurrentWeather;
 
 public interface CurrentWeatherService {
-    void addCurrentWeather(Weather currentWeatherRecord);
+    void addCurrentWeather(CurrentWeather currentCurrentWeatherRecord);
 
-    CurrentWeatherDTO getCurrentWeatherByLatAndLon(Float latitude, Float longitude);
+    CurrentWeather getCurrentWeatherByLatAndLon(Float latitude, Float longitude);
 }

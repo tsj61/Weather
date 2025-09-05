@@ -1,9 +1,9 @@
+/*
 package org.example.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.example.entity.WeatherValue;
 
 import java.time.LocalDateTime;
 
@@ -12,7 +12,8 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class CurrentWeatherDTO {
     private String city;
-    private WeatherValue weather;
+    private WeatherValue weatherValue;
     private LocalDateTime timestamp;
 }
 
+*/

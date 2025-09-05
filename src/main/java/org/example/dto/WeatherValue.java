@@ -1,19 +1,26 @@
-package org.example.entity;
+/*
+package org.example.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 import java.util.Objects;
 
 @Data
 public class WeatherValue {
+    @JsonProperty("weather.main")
     private String main;
 
+    @JsonProperty("weather.description")
     private String mainDescription;
 
+    @JsonProperty("main.temp")
     private Double temp;
 
+    @JsonProperty("feels_like")
     private Double feelsLike;
 
+    @JsonProperty("main.temp_min")
     private Double tempMin;
 
     private Double tempMax;
@@ -50,3 +57,4 @@ public class WeatherValue {
         return Objects.hash(main, mainDescription, temp, feelsLike, tempMin, tempMax, pressure, seaLevel, grndLevel, humidity, tempKf);
     }
 }
+*/

@@ -8,5 +8,7 @@ import java.util.List;
 
 @Repository
 public interface CityRepo extends MongoRepository<City, Long> {
-    List<City> getAll();
+    List<City> findAll();
+
+    City findByName(String name);
 }
