@@ -21,7 +21,7 @@ public class OWMClientImpl implements OWMClient {
     @Override
     public CurrentWeather getCurrentWeatherDataByLatAndLon(Float latitude, Float longitude) {
         return webClient.get()
-                .uri("/data/2.5//weather?lat=" + latitude + "&lon=" + longitude + "&appid=" + apiKey)
+                .uri("/data/2.5/weather?lat=" + latitude + "&lon=" + longitude + "&appid=" + apiKey)
                 .retrieve()
                 .bodyToMono(CurrentWeather.class)
                 .block();

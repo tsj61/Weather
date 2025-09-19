@@ -6,4 +6,6 @@ public interface CurrentWeatherService {
     void addCurrentWeather(CurrentWeather currentCurrentWeatherRecord);
 
     CurrentWeather getCurrentWeatherByLatAndLon(Float latitude, Float longitude);
+
+    CurrentWeather getCurrentWeatherByCityId(String cityId);
 }

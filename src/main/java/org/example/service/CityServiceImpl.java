@@ -35,6 +35,17 @@ public class CityServiceImpl implements CityService {
         return cityMapper.toDTO(city);
     }
 
+    @Override
+    public CityDTO getCityById(String cityId) {
+        Optional<City> city = cityRepo.findById(cityId);
+
+        if (city.isEmpty()) {
+            return null;
+        }
+
+        return cityMapper.toDTO(city.get());
+    }
+
     private City getCityFromOWM(String name) {
         List<City> cities = owmClient.getCityByName(name);
         Optional<City> city = cities.stream().findFirst();

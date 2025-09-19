@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface CityRepo extends MongoRepository<City, Long> {
+public interface CityRepo extends MongoRepository<City, String> {
     List<City> findAll();
 
     City findByName(String name);

@@ -27,4 +27,11 @@ public class WeatherController {
     ) {
         return new ResponseEntity<>(currentWeatherService.getCurrentWeatherByLatAndLon(latitude, longitude), HttpStatus.OK);
     }
+
+    @GetMapping("/{cityId}")
+    public ResponseEntity<CurrentWeather> getWeatherByCityId(@PathVariable String cityId) {
+        CurrentWeather currentWeather = currentWeatherService.getCurrentWeatherByCityId(cityId);
+        currentWeatherService.addCurrentWeather(currentWeather);
+        return new ResponseEntity<>(currentWeather, HttpStatus.OK);
+    }
 }

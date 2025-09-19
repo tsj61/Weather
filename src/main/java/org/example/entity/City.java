@@ -3,7 +3,6 @@ package org.example.entity;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
-import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -14,7 +13,7 @@ import java.util.Objects;
 @Document(collection = "city")
 public class City {
     @Id
-    private ObjectId id;
+    private String id;
 
     @JsonProperty("lon")
     private Float longitude;

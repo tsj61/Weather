@@ -1,6 +1,7 @@
 package org.example.service;
 
 import lombok.RequiredArgsConstructor;
+import org.example.dto.CityDTO;
 import org.example.entity.CurrentWeather;
 import org.example.openweatherapi.OWMClient;
 import org.example.repository.CurrentWeatherRecordRepo;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 public class CurrentWeatherServiceImpl implements CurrentWeatherService {
 
     private final CurrentWeatherRecordRepo currentWeatherRecordRepo;
+    private final CityService cityService;
     private final OWMClient owmClient;
     //private final WeatherMapper weatherMapper;
 
@@ -21,7 +23,12 @@ public class CurrentWeatherServiceImpl implements CurrentWeatherService {
 
     @Override
     public CurrentWeather getCurrentWeatherByLatAndLon(Float latitude, Float longitude) {
-        CurrentWeather currentWeather = owmClient.getCurrentWeatherDataByLatAndLon(latitude, longitude);
-        return currentWeather;
+        return owmClient.getCurrentWeatherDataByLatAndLon(latitude, longitude);
+    }
+
+    @Override
+    public CurrentWeather getCurrentWeatherByCityId(String cityId) {
+        CityDTO city = cityService.getCityById(cityId);
+        return getCurrentWeatherByLatAndLon(city.getLatitude(), city.getLongitude());
     }
 }
